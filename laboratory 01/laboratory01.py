@@ -10,7 +10,9 @@ def carregarImagem(path):
     Retorno: objeto Image
     """
 
-    return Image.open(path)
+    image = Image.open(path)
+    image.thumbnail((400, 400))
+    return image
 
 
 def salvarImagemJPEG(image, name):
@@ -20,7 +22,7 @@ def salvarImagemJPEG(image, name):
     Parametro name: nome sob o qual a imagem deve ser salva
     """
 
-    image.save(name + ".jpeg")
+    image.save(name + ".jpg")
 
 def espelharImagemHorizontal(image):
     """
@@ -147,15 +149,3 @@ def encontrarTonsIntensidade(image):
                 shade_max = pixel
     
     return (shade_min, shade_max)
-
-            
-if __name__ == "__main__":
-    
-    path = "test_images/Underwater_53k.jpg"
-
-    image = carregarImagem(path)
-
-    # salvarImagemJPEG(espelharImagemHorizontal(image), "horizontal-mirroring")
-    # salvarImagemJPEG(espelharImagemVertical(image), "vertical-mirroring")
-    # salvarImagemJPEG(converterImagemParaCinza(image), "gray-scale")
-    # salvarImagemJPEG(quantizarImagemCinza(image, 4), "quantized-image")q
