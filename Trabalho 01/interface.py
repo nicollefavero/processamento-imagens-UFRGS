@@ -1,6 +1,6 @@
 import io
 import os
-import laboratory01
+import trabalho01
 import PySimpleGUI as sg
 from PIL import Image
 
@@ -68,7 +68,7 @@ class Interface:
             if event == "Carregar Imagem":
                 filename = values["arquivo"]
                 if os.path.exists(filename):
-                    image = laboratory01.carregarImagem(filename)
+                    image = trabalho01.carregarImagem(filename)
                     bio = io.BytesIO()
                     image.save(bio, format="PNG")
                     self.janela["image"].update(data=bio.getvalue())
@@ -96,12 +96,12 @@ class Interface:
                 editLeft = values["editLeft"]
 
                 if editLeft:
-                    image = laboratory01.espelharImagemHorizontal(image)
+                    image = trabalho01.espelharImagemHorizontal(image)
                     image.save(bio, format="PNG")
                     self.janela["image"].update(data=bio.getvalue())
                     
                 elif editRight:
-                    image_copy = laboratory01.espelharImagemHorizontal(image_copy)
+                    image_copy = trabalho01.espelharImagemHorizontal(image_copy)
                     image_copy.save(bio, format="PNG")
                     self.janela["imageCopy"].update(data=bio.getvalue())
 
@@ -112,12 +112,12 @@ class Interface:
                 editLeft = values["editLeft"]
 
                 if editLeft:
-                    image = laboratory01.espelharImagemVertical(image)
+                    image = trabalho01.espelharImagemVertical(image)
                     image.save(bio, format="PNG")
                     self.janela["image"].update(data=bio.getvalue())
                     
                 elif editRight:
-                    image_copy = laboratory01.espelharImagemVertical(image_copy)
+                    image_copy = trabalho01.espelharImagemVertical(image_copy)
                     image_copy.save(bio, format="PNG")
                     self.janela["imageCopy"].update(data=bio.getvalue())
 
@@ -128,12 +128,12 @@ class Interface:
                 editLeft = values["editLeft"]
 
                 if editLeft:
-                    image = laboratory01.converterImagemParaCinza(image)
+                    image = trabalho01.converterImagemParaCinza(image)
                     image.save(bio, format="PNG")
                     self.janela["image"].update(data=bio.getvalue())
                     
                 elif editRight:
-                    image_copy = laboratory01.converterImagemParaCinza(image_copy)
+                    image_copy = trabalho01.converterImagemParaCinza(image_copy)
                     image_copy.save(bio, format="PNG")
                     self.janela["imageCopy"].update(data=bio.getvalue())
             
@@ -145,12 +145,12 @@ class Interface:
                 colors_num = int(values["colors"])
 
                 if editLeft:
-                    image = laboratory01.quantizarImagemCinza(image, colors_num)
+                    image = trabalho01.quantizarImagemCinza(image, colors_num)
                     image.save(bio, format="PNG")
                     self.janela["image"].update(data=bio.getvalue())
                     
                 elif editRight:
-                    image_copy = laboratory01.quantizarImagemCinza(image_copy, colors_num)
+                    image_copy = trabalho01.quantizarImagemCinza(image_copy, colors_num)
                     image_copy.save(bio, format="PNG")
                     self.janela["imageCopy"].update(data=bio.getvalue())
             
@@ -161,10 +161,10 @@ class Interface:
                 folderName = values["pastaNome"]
 
                 if saveLeft:
-                    laboratory01.salvarImagemJPEG(image, folderName + "/" + name)
+                    trabalho01.salvarImagemJPEG(image, folderName + "/" + name)
                     print("Saved")
                 elif saveRight:
-                    laboratory01.salvarImagemJPEG(image_copy, folderName + "/" + name)
+                    trabalho01.salvarImagemJPEG(image_copy, folderName + "/" + name)
                     print("Saved")
 
 if __name__ == "__main__":
