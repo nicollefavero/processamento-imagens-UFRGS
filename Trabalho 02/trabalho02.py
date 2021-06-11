@@ -609,7 +609,7 @@ def calculaMediaPixelRGB(rgb_pixel1, rgb_pixel2):
 
 
 
-image_original = Image.open("test_images/Gramado_22k.jpg")
+image_original = Image.open("test_images/original_color_image.png")
 
 # HISTOGRAMA
 # image_original.show()
@@ -689,3 +689,4 @@ image_original = Image.open("test_images/Gramado_22k.jpg")
 # REDUZIR IMAGEM
 # image_original.show()
 # reduzirImagem(image_original, 3, 3).show()
+reduzirImagem(image_original, 5, 5).save("original_reduced.png")
